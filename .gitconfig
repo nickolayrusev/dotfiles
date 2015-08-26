@@ -1,0 +1,50 @@
+[user]
+	name = Nickolay Rusev
+	email = nickolay.rusev@gmail.com
+[alias]
+ 	co = checkout
+   	ci = commit
+   	st = status
+   	br = branch
+   	sts = status -s
+	hist = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+   	type = cat-file -t
+    d = diff
+    ds= diff --staged
+    dw= diff --color-words
+    dump = cat-file -p
+    restore = "!f() { git checkout $(git rev-list -n 1 HEAD -- $1)~1 -- $(git diff --name-status $(git rev-list -n 1 HEAD -- $1)~1 | grep ^D | cut -f 2); }; f"
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    la = "!git config -l | grep alias | cut -c 7-"
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    undo = reset --soft HEAD^
+    unstage = reset --
+    log-fancy = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative 
+    unstageall = reset
+    summary = "!source ~/.githelpers && weekly_summary"
+    w       = whatchanged --decorate
+    wp      = whatchanged --decorate -p
+    ro =  clean -f **/*.orig
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    id = "!source ~/.githelpers && gitDiff"
+[merge]
+	tool = kdiff3
+    summary = true
+[diff]
+    tool = kdiff3 
+[core]
+    excludesfile = /Users/nikolayrusev/.gitignore_global
+    editor = vim
+	autocrlf = input
+[difftool "kdiff3"]
+    path = "/users/nikolayrusev/Applications/kdiff3.app/Contents/MacOS/kdiff3"
+    trustExitCode = false
+[mergetool "kdiff3"]
+    path = "/users/nikolayrusev/Applications/kdiff3.app/Contents/MacOS/kdiff3"
+	trustExitCode = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
