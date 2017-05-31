@@ -1,0 +1,57 @@
+{
+  "lists": [
+    {
+      "openshift": [
+        {
+          "port-forward": "rhc port-forward -a sites --namespace hukuuu"
+        },
+        {
+          "ssh-dev": "ssh 552f7438e0b8cdf1ac00014f@sitesdev-nrusev.rhcloud.com"
+        },
+        {
+          "ssh": "ssh 552fc19e5973ca8df80000f0@sites-hukuuu.rhcloud.com"
+        },
+        {
+          "ssh-prod": "ssh 5548cf47fcf933e4da00018d@app-mobzar.rhcloud.com"
+        },
+        {
+          "tail-prod": "rhc tail app --namespace mobzar -f wildfly/logs/server.log -o '-n 400'"
+        },
+        {
+          "rhc": "tail-prod"
+        }
+      ]
+    },
+    {
+      "rhc": [
+        {
+          "tail-mobzar-prod": "rhc tail app --namespace mobzar"
+        },
+        {
+          "tail-mobzar-pro…": "tail-mobzar-pro…"
+        }
+      ]
+    },
+    {
+      "forscan": [
+        {
+          "run": "wine FORScan.exe"
+        }
+      ]
+    },
+    {
+      "misc": [
+        {
+          "port-check": "lsof -i :8080"
+        }
+      ]
+    },
+    {
+      "loc": [
+        {
+          "ssh-loc": "ssh root@locdemo.bianor.net -i ~/Downloads/loc_rsa_openssh"
+        }
+      ]
+    }
+  ]
+}
